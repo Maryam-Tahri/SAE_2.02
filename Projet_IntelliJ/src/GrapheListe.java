@@ -44,4 +44,8 @@ public class GrapheListe implements Graphe {
         int ind = getIndice(s);
         return adjacence.get(ind).getArcs();
     }
+
+    public void ajouterNoeud(String n){
+        noeuds.add(n);
+    }
 }
