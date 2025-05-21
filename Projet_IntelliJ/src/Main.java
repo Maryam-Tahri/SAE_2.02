@@ -4,11 +4,11 @@ public class Main {
     public static void main(String[] args) {
         GrapheListe graph = new GrapheListe();
 
-        graph.ListeNoeuds().add("A");
-        graph.ListeNoeuds().add("B");
-        graph.ListeNoeuds().add("C");
-        graph.ListeNoeuds().add("D");
-        graph.ListeNoeuds().add("E");
+        graph.ajouterNoeud("A");
+        graph.ajouterNoeud("B");
+        graph.ajouterNoeud("C");
+        graph.ajouterNoeud("D");
+        graph.ajouterNoeud("E");
 
         graph.ajouterArc("A", "B", 12);
         graph.ajouterArc("A", "D", 87);
