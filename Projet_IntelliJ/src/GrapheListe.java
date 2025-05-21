@@ -53,10 +53,11 @@ public class GrapheListe implements Graphe {
         String res = "";
         for (int i = 0; i < this.noeuds.size(); i++) {
             res += this.noeuds.get(i) + " -> ";
-            List<Arcs> as = adjacence.get(i).getArcs();
+            List<Arc> as = adjacence.get(i).getArcs();
             for (int j = 0; j < as.size(); j++) {
                 res += as.get(j).toString() + " ";
             }
         }
+        return res;
     }
 }
