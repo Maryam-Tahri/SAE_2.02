@@ -1,3 +1,4 @@
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,24 +7,26 @@ public class GrapheListe implements Graphe {
     private ArrayList<Arcs> adjacence;
 
     public GrapheListe() {
-        noeuds = new ArrayList<String>();
-        adjacence = new ArrayList<Arcs>();
+        noeuds = new ArrayList<>(10);
+        adjacence = new ArrayList<>(10);
     }
 
     public void ajouterArc(String depart, String destination, double count) {
         int ind1 = getIndice(depart);
         int ind2 = getIndice(destination);
+
         if (ind1 == -1) {
-            noeuds.add(depart);
+            ajouterNoeud(depart);
+            ind1 = getIndice(depart);
         }
         if (ind2 == -1) {
-            noeuds.add(destination);
+            ajouterNoeud(destination);
+            ind2 = getIndice(destination);
         }
+        System.out.println(ind1 + " " + ind2);
         Arc a = new Arc(destination, count);
-        ind1 = getIndice(depart);
         Arcs as = adjacence.get(ind1);
         as.ajouterArc(a);
-
     }
 
 
@@ -45,17 +48,23 @@ public class GrapheListe implements Graphe {
         return adjacence.get(ind).getArcs();
     }
 
-    public void ajouterNoeud(String n){
-        noeuds.add(n);
+    public void ajouterNoeud(String n) {
+        if (!noeuds.contains(n)) {
+            noeuds.add(n);
+            adjacence.add(new Arcs()); // Initialize an Arcs object for the new node
+        }
     }
 
     public String toString(){
         String res = "";
         for (int i = 0; i < this.noeuds.size(); i++) {
             res += this.noeuds.get(i) + " -> ";
-            List<Arc> as = adjacence.get(i).getArcs();
-            for (int j = 0; j < as.size(); j++) {
-                res += as.get(j).toString() + " ";
+            if (!(adjacence.isEmpty())){
+                List<Arc> as = adjacence.get(i).getArcs();
+                for (int j = 0; j < as.size(); j++) {
+                    res += as.get(j).toString() + " ";
+                }
+                res += "\n";
             }
         }
         return res;

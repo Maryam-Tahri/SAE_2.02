@@ -17,5 +17,7 @@ public class Main {
         graph.ajouterArc("D", "C", 10);
         graph.ajouterArc("D", "B", 23);
         graph.ajouterArc("E", "D", 43);
+
+        System.out.println(graph.toString());
     }
 }
