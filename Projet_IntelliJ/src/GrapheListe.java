@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class GrapheListe implements Graphe{
-    private ArrayList<String> Noeuds;
+    private ArrayList<String> noeuds;
     private ArrayList<Arcs> adjacence;
 
     public void ajouterArc(String depart, String destination, double count){
@@ -9,11 +10,15 @@ public class GrapheListe implements Graphe{
     }
 
     public int getIndice(String n){
-        for (int i = 0; i < Noeuds.size(); i++) {
-            if (Noeuds.get(i).equals(n)){
+        for (int i = 0; i < this.noeuds.size(); i++) {
+            if (this.noeuds.get(i).equals(n)){
                 return i;
             }
         }
         return -1;
+    }
+
+    public List<String> ListeNoeuds(){
+        return this.noeuds;
     }
 }
