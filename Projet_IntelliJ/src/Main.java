@@ -1,15 +1,21 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        GrapheListe graph = new GrapheListe();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        graph.ListeNoeuds().add("A");
+        graph.ListeNoeuds().add("B");
+        graph.ListeNoeuds().add("C");
+        graph.ListeNoeuds().add("D");
+        graph.ListeNoeuds().add("E");
+
+        graph.ajouterArc("A", "B", 12);
+        graph.ajouterArc("A", "D", 87);
+        graph.ajouterArc("B", "E", 11);
+        graph.ajouterArc("C", "A", 10);
+        graph.ajouterArc("D", "C", 10);
+        graph.ajouterArc("D", "B", 23);
+        graph.ajouterArc("E", "D", 43);
     }
 }
