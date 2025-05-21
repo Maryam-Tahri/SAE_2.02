@@ -8,4 +8,12 @@ public class Arc {
             this.cout = cout;
         }
     }
+
+    public String getDest() {
+        return dest;
+    }
+
+    public double getCout() {
+        return cout;
+    }
 }

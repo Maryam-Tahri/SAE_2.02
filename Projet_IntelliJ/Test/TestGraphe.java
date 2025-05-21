@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestGraphe {
 
     @Test
-    public void testGraphe() {
+    public void testGrapheContientNoeud() {
 
         GrapheListe graphe = new GrapheListe();
         graphe.ajouterArc("A", "B", 12);
@@ -18,6 +18,14 @@ public class TestGraphe {
         assertTrue(noeuds.contains("A"));
         assertTrue(noeuds.contains("B"));
         assertTrue(noeuds.contains("D"));
+
+    }
+    
+    @Test
+    public void testGrapheSuivantOk() {
+        GrapheListe graphe = new GrapheListe();
+        graphe.ajouterArc("A", "B", 12);
+        graphe.ajouterArc("A", "D", 87);
 
         List<Arc> arcsA = graphe.suivants("A");
         assertEquals(2, arcsA.size());
