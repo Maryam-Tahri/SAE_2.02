@@ -28,7 +28,7 @@ public class GrapheListe implements Graphe {
 
 
     public int getIndice(String n) {
-        for (int i = 0; i < this.noeuds.size(); i++) {
+        for (int i = 0; i < this.noeuds.size()-1; i++) {
             if (this.noeuds.get(i).equals(n)) {
                 return i;
             }
@@ -47,5 +47,16 @@ public class GrapheListe implements Graphe {
 
     public void ajouterNoeud(String n){
         noeuds.add(n);
+    }
+
+    public String toString(){
+        String res = "";
+        for (int i = 0; i < this.noeuds.size(); i++) {
+            res += this.noeuds.get(i) + " -> ";
+            List<Arcs> as = adjacence.get(i).getArcs();
+            for (int j = 0; j < as.size(); j++) {
+                res += as.get(j).toString() + " ";
+            }
+        }
     }
 }
