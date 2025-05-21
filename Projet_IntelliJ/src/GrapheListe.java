@@ -21,4 +21,9 @@ public class GrapheListe implements Graphe{
     public List<String> ListeNoeuds(){
         return this.noeuds;
     }
+
+    public List<Arc> suivants(String s){
+        int ind = getIndice(s);
+        return adjacence.get(ind).getArcs();
+    }
 }
