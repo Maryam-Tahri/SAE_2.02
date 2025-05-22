@@ -4,12 +4,6 @@ public class Main {
     public static void main(String[] args) {
         GrapheListe graph = new GrapheListe();
 
-        graph.ajouterNoeud("A");
-        graph.ajouterNoeud("B");
-        graph.ajouterNoeud("C");
-        graph.ajouterNoeud("D");
-        graph.ajouterNoeud("E");
-
         graph.ajouterArc("A", "B", 12);
         graph.ajouterArc("A", "D", 87);
         graph.ajouterArc("B", "E", 11);
@@ -19,5 +13,9 @@ public class Main {
         graph.ajouterArc("E", "D", 43);
 
         System.out.println(graph.toString());
+
+        Valeurs v =  new Valeurs();
+        v.resoudre(graph,"A");
+        System.out.println(v.toString());
     }
 }
