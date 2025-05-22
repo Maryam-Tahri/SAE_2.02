@@ -15,7 +15,7 @@ public class Main {
         System.out.println(graph.toString());
 
         Valeurs v =  new Valeurs();
-        v.resoudre(graph,"A");
+        v = BellmanFord.resoudre(graph,"A");
         System.out.println(v.toString());
     }
 }
