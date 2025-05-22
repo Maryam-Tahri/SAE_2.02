@@ -60,7 +60,7 @@ public class GrapheListe implements Graphe {
             if (!(adjacence.isEmpty())){
                 List<Arc> as = adjacence.get(i).getArcs();
                 for (int j = 0; j < as.size(); j++) {
-                    res += as.get(j).getDest() + "(" + as.get(j).getCout() +") ";
+                    res += as.get(j).toString() + " ";
                 }
                 res += "\n";
             }

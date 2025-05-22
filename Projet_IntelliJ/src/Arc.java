@@ -16,4 +16,8 @@ public class Arc {
     public double getCout() {
         return cout;
     }
+
+    public String toString(){
+        return dest + "("+cout+")";
+    }
 }
