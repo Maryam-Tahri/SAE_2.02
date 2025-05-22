@@ -15,7 +15,13 @@ public class Main {
         System.out.println(graph.toString());
 
         Valeurs v =  new Valeurs();
-        v = BellmanFord.resoudre(graph,"A");
+        BellmanFord bf = new BellmanFord();
+        v = bf.resoudre(graph,"A");
+        System.out.println(v.toString());
+
+        Valeurs v2 =  new Valeurs();
+        Dijkstra dj = new Dijkstra();
+        v = dj.resoudre(graph,"A");
         System.out.println(v.toString());
     }
 }

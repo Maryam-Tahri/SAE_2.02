@@ -1,8 +1,10 @@
 import java.util.*;
 
-public class Dijkstra {
+public class Dijkstra implements Resoudre {
 
-    public static Valeurs resoudre(Graphe g, String depart) {
+    public Dijkstra(){}
+
+    public Valeurs resoudre(Graphe g, String depart) {
         Valeurs valeurs = new Valeurs();
         List<String> noeuds = g.ListeNoeuds();
         List<String> Q = new ArrayList<>(noeuds);

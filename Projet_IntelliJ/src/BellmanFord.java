@@ -1,26 +1,9 @@
 import java.util.List;
 
-public class BellmanFord {
+public class BellmanFord implements Resoudre {
 
-    /**
-     * Algorithme pointFixe(Graphe g, Noeud depart):
-
-     *             Pour chaque Arc (N, cout) dans g.suivants(X) faire
-     *                 Si L.getValeur(X) + cout < L.getValeur(N) alors
-     *                     L.setValeur(N, L.getValeur(X) + cout)
-     *                     L.setParent(N, X)
-     *                     modifié = true
-     *                 Fin Si
-     *             Fin Pour
-     *         Fin Pour
-     *     Fin Tant que
-     *     Retourner L
-     * Fin
-     * @param g
-     * @param depart
-     * @return
-     */
-    public static Valeurs resoudre(Graphe g, String depart){
+    public BellmanFord() {}
+    public Valeurs resoudre(Graphe g, String depart){
         Valeurs l = new Valeurs();
         for (int i = 0 ; i < g.ListeNoeuds().size(); i++){
             l.setValeur(g.ListeNoeuds().get(i), Double.MAX_VALUE);
