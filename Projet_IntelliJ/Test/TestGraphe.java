@@ -34,6 +34,15 @@ public class TestGraphe {
         assertEquals("D", arcsA.get(1).getDest());
         assertEquals(87, arcsA.get(1).getCout());
     }
+
+    @Test
+    public void testGrapheArcInconnu(){
+        GrapheListe graphe = new GrapheListe();
+        graphe.ajouterArc("A", "B", 12);
+        graphe.ajouterArc("A", "D", 87);
+
+        assertEquals(-1 , graphe.getIndice("C"));
+    }
 }
 
 

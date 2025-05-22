@@ -13,25 +13,23 @@ public class GrapheListe implements Graphe {
 
     public void ajouterArc(String depart, String destination, double count) {
         int ind1 = getIndice(depart);
-        int ind2 = getIndice(destination);
 
-        if (ind1 == -1) {
+        if (!noeuds.contains(depart)) {
             ajouterNoeud(depart);
             ind1 = getIndice(depart);
+            adjacence.add(new Arcs());
         }
-        if (ind2 == -1) {
+        if (!noeuds.contains(destination)) {
             ajouterNoeud(destination);
-            ind2 = getIndice(destination);
+            adjacence.add(new Arcs());
         }
-        System.out.println(ind1 + " " + ind2);
-        Arc a = new Arc(destination, count);
-        Arcs as = adjacence.get(ind1);
-        as.ajouterArc(a);
+        Arc arc = new Arc(destination, count);
+        adjacence.get(ind1).ajouterArc(arc);
     }
 
 
     public int getIndice(String n) {
-        for (int i = 0; i < this.noeuds.size()-1; i++) {
+        for (int i = 0; i < this.noeuds.size(); i++) {
             if (this.noeuds.get(i).equals(n)) {
                 return i;
             }
@@ -62,11 +60,13 @@ public class GrapheListe implements Graphe {
             if (!(adjacence.isEmpty())){
                 List<Arc> as = adjacence.get(i).getArcs();
                 for (int j = 0; j < as.size(); j++) {
-                    res += as.get(j).toString() + " ";
+                    res += as.get(j).getDest() + "(" + as.get(j).getCout() +") ";
                 }
                 res += "\n";
             }
         }
         return res;
     }
+
+
 }

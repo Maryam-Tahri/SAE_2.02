@@ -4,7 +4,7 @@ public class Arc {
 
     public Arc(String dest, double cout) {
         this.dest = dest;
-        if (cout < 0) {
+        if (cout > 0) {
             this.cout = cout;
         }
     }
