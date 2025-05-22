@@ -23,5 +23,8 @@ public class Main {
         Dijkstra dj = new Dijkstra();
         v = dj.resoudre(graph,"A");
         System.out.println(v.toString());
+
+        GrapheListe g = new GrapheListe("Graphe/Graphe1.txt");
+        System.out.println(g.toString());
     }
 }

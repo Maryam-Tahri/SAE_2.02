@@ -1,4 +1,7 @@
 import javax.swing.plaf.synth.SynthTextAreaUI;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +69,27 @@ public class GrapheListe implements Graphe {
             }
         }
         return res;
+    }
+
+    public GrapheListe(String nomFichier){
+        noeuds = new ArrayList<>(10);
+        adjacence = new ArrayList<>(10);
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(nomFichier));
+            ArrayList<String> txt = new ArrayList<String>();
+            String line =br.readLine();
+            while (line != null){
+                txt.add(line);
+                line = br.readLine();
+            }
+            br.close();
+            for (String s : txt) {
+                String[] split = s.split("\t");
+                this.ajouterArc(split[0],split[1],Double.valueOf(split[2]));
+            }
+        }catch( IOException e){
+            System.out.println("problème du fichier");
+        }
     }
 
 
