@@ -20,7 +20,7 @@ public class BellmanFord {
      * @param depart
      * @return
      */
-    public Valeurs resoudre(Graphe g, String depart){
+    public static Valeurs resoudre(Graphe g, String depart){
         Valeurs l = new Valeurs();
         for (int i = 0 ; i < g.ListeNoeuds().size(); i++){
             l.setValeur(g.ListeNoeuds().get(i), Double.MAX_VALUE);
