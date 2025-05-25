@@ -13,12 +13,20 @@ public class MainMetro {
                 Valeurs v2 =  new Valeurs();
                 BellmanFord bf = new BellmanFord();
                 Dijkstra dj = new Dijkstra();
+
+
+                long datedeb1 = System.nanoTime();
                 v = bf.resoudre(g2,depart);
+                long datefin1 = System.nanoTime();
+                long execBellmanFord = datefin1-datedeb1;
+                long datedeb2 = System.nanoTime();
                 v2 = dj.resoudre(g2,depart);
+                long datefin2 = System.nanoTime();
+                long execDijkstra = datefin2-datedeb2;
+                System.out.println("Temps d'execution Dijkstra : "+execDijkstra+"ns\n" +"Temps d'execution de BerllmanFord : "+execBellmanFord+"ns");
                 List<String> c1 = v.calculerChemin(arrive);
                 List<String> c2 = v2.calculerChemin(arrive);
-                System.out.println(c1);
-                System.out.println(c2);
+
             }
         }catch(IOException e){
             System.out.println("LireReseau Erreur : "+e.getMessage());
