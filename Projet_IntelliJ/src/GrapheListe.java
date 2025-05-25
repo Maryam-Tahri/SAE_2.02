@@ -29,6 +29,9 @@ public class GrapheListe implements Graphe {
         Arc arc = new Arc(destination, count);
         adjacence.get(ind1).ajouterArc(arc);
     }
+    public void ajouterArc(String depart, Arc a) {
+        adjacence.get(getIndice(depart)).ajouterArc(a);
+    }
 
 
     public int getIndice(String n) {
