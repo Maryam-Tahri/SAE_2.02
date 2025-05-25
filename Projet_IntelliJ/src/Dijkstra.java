@@ -2,17 +2,16 @@ import java.util.*;
 
 public class Dijkstra implements Resoudre {
 
-    public Dijkstra(){}
+    public Dijkstra() {}
 
     public Valeurs resoudre(Graphe g, String depart) {
         Valeurs valeurs = new Valeurs();
         List<String> noeuds = g.ListeNoeuds();
         List<String> Q = new ArrayList<>(noeuds);
 
-        for (String v : g.ListeNoeuds()) {
+        for (String v : noeuds) {
             valeurs.setValeur(v, Double.MAX_VALUE);
             valeurs.setParent(v, null);
-            Q.add(v);
         }
 
         valeurs.setValeur(depart, 0.0);
@@ -31,22 +30,19 @@ public class Dijkstra implements Resoudre {
                 }
             }
         }
-
         return valeurs;
     }
 
-    private static String trouverMin(List<String> Q, Valeurs valeurs) {
-        String minSommet = null;
+    private String trouverMin(List<String> Q, Valeurs valeurs) {
+        String minNoeud = null;
         double minValeur = Double.MAX_VALUE;
-        for (String s : Q) {
-            double val = valeurs.getValeur(s);
+        for (String noeud : Q) {
+            double val = valeurs.getValeur(noeud);
             if (val < minValeur) {
                 minValeur = val;
-                minSommet = s;
+                minNoeud = noeud;
             }
         }
-        return minSommet;
+        return minNoeud;
     }
 }
-
-
