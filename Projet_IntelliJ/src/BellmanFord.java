@@ -2,7 +2,17 @@ import java.util.List;
 
 public class BellmanFord implements Resoudre {
 
+    /**
+     * Construteur par défaut
+     */
     public BellmanFord() {}
+
+    /**
+     * Méthode qui permet d'appliquer l'algorithme du point fixe de BellmanFord
+     * @param g
+     * @param depart
+     * @return
+     */
     public Valeurs resoudre(Graphe g, String depart){
         Valeurs l = new Valeurs();
         for (int i = 0 ; i < g.ListeNoeuds().size(); i++){
@@ -28,6 +38,13 @@ public class BellmanFord implements Resoudre {
         return l;
     }
 
+    /**
+     * Méthode qui permet d'appliquer l'algorithme du point fixe de BellmanFord en rajoutéant les pénalité de temps sur les changement de ligne
+     *
+     * @param g
+     * @param depart
+     * @return
+     */
     public Valeurs resoudre2(Graphe g, String depart){
         Valeurs l = new Valeurs();
         for (int i = 0 ; i < g.ListeNoeuds().size(); i++){

@@ -3,6 +3,13 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class LireReseau {
+
+    /**
+     * Méthode qui permet de chargé un graphe depuis un fichier (plan du réseau fourni sur ARCHE)
+     * @param nFichier
+     * @return
+     * @throws IOException
+     */
     public static Graphe Lire(String nFichier) throws IOException {
         GrapheListe g = new GrapheListe();
         BufferedReader br = new BufferedReader(new FileReader(nFichier));
