@@ -9,11 +9,21 @@ public class GrapheListe implements Graphe {
     private ArrayList<String> noeuds;
     private ArrayList<Arcs> adjacence;
 
+    /**
+     * Contructeur par défaut d'un GrapheListe
+     */
     public GrapheListe() {
         noeuds = new ArrayList<>(10);
         adjacence = new ArrayList<>(10);
     }
 
+    /**
+     * Méthode qui permet d'ajouté un arc pondéré entre deux noeuds
+     * Si les noeuds de départ ou de destination n'existe pas, ils sont créer et ajouté au graphe
+     * @param depart
+     * @param destination
+     * @param count
+     */
     public void ajouterArc(String depart, String destination, double count) {
         int ind1 = getIndice(depart);
 
@@ -29,11 +39,21 @@ public class GrapheListe implements Graphe {
         Arc arc = new Arc(destination, count);
         adjacence.get(ind1).ajouterArc(arc);
     }
+
+    /**
+     * Méthode qui permet d'ajouter un arc au graphe a partir d'un arc déjà existant
+     * @param depart
+     * @param a
+     */
     public void ajouterArc(String depart, Arc a) {
         adjacence.get(getIndice(depart)).ajouterArc(a);
     }
 
-
+    /**
+     * Méthode qui permet de récupré l'indice du noeud dans la liste de noeud en attribut
+     * @param n
+     * @return
+     */
     public int getIndice(String n) {
         for (int i = 0; i < this.noeuds.size(); i++) {
             if (this.noeuds.get(i).equals(n)) {
@@ -43,15 +63,28 @@ public class GrapheListe implements Graphe {
         return -1;
     }
 
+    /**
+     * méthode qui renvoie l'attribut qui contient la liste de noeuds
+     * @return
+     */
     public List<String> ListeNoeuds() {
         return this.noeuds;
     }
 
+    /**
+     * Méthode qui renvoie les arcs qui parte du noeuds en paramètre
+     * @param s
+     * @return
+     */
     public List<Arc> suivants(String s) {
         int ind = getIndice(s);
         return adjacence.get(ind).getArcs();
     }
 
+    /**
+     * Méthode pour rajouté un noeud au graphe
+     * @param n
+     */
     public void ajouterNoeud(String n) {
         if (!noeuds.contains(n)) {
             noeuds.add(n);
@@ -59,6 +92,10 @@ public class GrapheListe implements Graphe {
         }
     }
 
+    /**
+     * Méthode qui renvoie l'affichage de l'objet
+     * @return
+     */
     public String toString(){
         String res = "";
         for (int i = 0; i < this.noeuds.size(); i++) {
@@ -74,6 +111,10 @@ public class GrapheListe implements Graphe {
         return res;
     }
 
+    /**
+     * Constructeur qui prend en paramètre un fichier et construit le graphe dans le fichier
+     * @param nomFichier
+     */
     public GrapheListe(String nomFichier){
         noeuds = new ArrayList<>(10);
         adjacence = new ArrayList<>(10);
