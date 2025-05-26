@@ -6,6 +6,7 @@ public class LireReseau {
 
     /**
      * Méthode qui permet de chargé un graphe depuis un fichier (plan du réseau fourni sur ARCHE)
+     *
      * @param nFichier
      * @return
      * @throws IOException
@@ -17,23 +18,23 @@ public class LireReseau {
         boolean stations = true;
         while (line != null) {
             if (!(line.equals(""))) {
-                if (line.startsWith("%") ) {
+                if (line.startsWith("%")) {
                     if (stations && line.equals("%% Connexions:")) {
                         stations = false;
                     }
-                }else {
+                } else {
                     String[] s = line.split(":");
-                    if(stations){
+                    if (stations) {
                         g.ajouterNoeud(s[1]);
-                    }else{
-                        String depart = g.ListeNoeuds().get(Integer.parseInt(s[0])-1);
-                        String dest = g.ListeNoeuds().get(Integer.parseInt(s[1])-1);
+                    } else {
+                        String depart = g.ListeNoeuds().get(Integer.parseInt(s[0]) - 1);
+                        String dest = g.ListeNoeuds().get(Integer.parseInt(s[1]) - 1);
                         double cout = Double.parseDouble(s[2]);
                         String ligne = s[3];
-                        Arc a1 = new Arc(dest,cout,ligne);
-                        Arc a2 = new Arc(depart,cout,ligne);
-                        g.ajouterArc(depart,a1);
-                        g.ajouterArc(dest,a2);
+                        Arc a1 = new Arc(dest, cout, ligne);
+                        Arc a2 = new Arc(depart, cout, ligne);
+                        g.ajouterArc(depart, a1);
+                        g.ajouterArc(dest, a2);
                     }
                 }
             }

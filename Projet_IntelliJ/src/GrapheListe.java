@@ -20,6 +20,7 @@ public class GrapheListe implements Graphe {
     /**
      * Méthode qui permet d'ajouté un arc pondéré entre deux noeuds
      * Si les noeuds de départ ou de destination n'existe pas, ils sont créer et ajouté au graphe
+     *
      * @param depart
      * @param destination
      * @param count
@@ -42,6 +43,7 @@ public class GrapheListe implements Graphe {
 
     /**
      * Méthode qui permet d'ajouter un arc au graphe a partir d'un arc déjà existant
+     *
      * @param depart
      * @param a
      */
@@ -51,6 +53,7 @@ public class GrapheListe implements Graphe {
 
     /**
      * Méthode qui permet de récupré l'indice du noeud dans la liste de noeud en attribut
+     *
      * @param n
      * @return
      */
@@ -65,6 +68,7 @@ public class GrapheListe implements Graphe {
 
     /**
      * méthode qui renvoie l'attribut qui contient la liste de noeuds
+     *
      * @return
      */
     public List<String> ListeNoeuds() {
@@ -73,6 +77,7 @@ public class GrapheListe implements Graphe {
 
     /**
      * Méthode qui renvoie les arcs qui parte du noeuds en paramètre
+     *
      * @param s
      * @return
      */
@@ -83,6 +88,7 @@ public class GrapheListe implements Graphe {
 
     /**
      * Méthode pour rajouté un noeud au graphe
+     *
      * @param n
      */
     public void ajouterNoeud(String n) {
@@ -94,13 +100,14 @@ public class GrapheListe implements Graphe {
 
     /**
      * Méthode qui renvoie l'affichage de l'objet
+     *
      * @return
      */
-    public String toString(){
+    public String toString() {
         String res = "";
         for (int i = 0; i < this.noeuds.size(); i++) {
             res += this.noeuds.get(i) + " -> ";
-            if (!(adjacence.isEmpty())){
+            if (!(adjacence.isEmpty())) {
                 List<Arc> as = adjacence.get(i).getArcs();
                 for (int j = 0; j < as.size(); j++) {
                     res += as.get(j).toString() + " ";
@@ -113,25 +120,26 @@ public class GrapheListe implements Graphe {
 
     /**
      * Constructeur qui prend en paramètre un fichier et construit le graphe dans le fichier
+     *
      * @param nomFichier
      */
-    public GrapheListe(String nomFichier){
+    public GrapheListe(String nomFichier) {
         noeuds = new ArrayList<>(10);
         adjacence = new ArrayList<>(10);
-        try{
+        try {
             BufferedReader br = new BufferedReader(new FileReader(nomFichier));
             ArrayList<String> txt = new ArrayList<String>();
-            String line =br.readLine();
-            while (line != null){
+            String line = br.readLine();
+            while (line != null) {
                 txt.add(line);
                 line = br.readLine();
             }
             br.close();
             for (String s : txt) {
                 String[] split = s.split("\t");
-                this.ajouterArc(split[0],split[1],Double.valueOf(split[2]));
+                this.ajouterArc(split[0], split[1], Double.valueOf(split[2]));
             }
-        }catch( IOException e){
+        } catch (IOException e) {
             System.out.println("problème du fichier");
         }
     }

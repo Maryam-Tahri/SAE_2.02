@@ -92,7 +92,7 @@ public class Valeurs {
         return res;
     }
 
-    public List<String> calculerChemin(String destination){
+    public List<String> calculerChemin(String destination) {
         List<String> res = new ArrayList<>();
         String noeudParent = destination;
         while (noeudParent != null) {

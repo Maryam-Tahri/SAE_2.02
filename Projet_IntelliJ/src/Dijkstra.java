@@ -1,13 +1,15 @@
 import java.util.*;
 
-public class Dijkstra implements Resoudre {
+public class Dijkstra {
     /**
      * Constructeur par défaut
      */
-    public Dijkstra() {}
+    public Dijkstra() {
+    }
 
     /**
      * Méthode qui permet d'appliquer l'algorithme de Dijkstra
+     *
      * @param g
      * @param depart
      * @return
@@ -43,6 +45,7 @@ public class Dijkstra implements Resoudre {
 
     /**
      * Méthode qui permet d'appliquer l'algorithme de Dijkstra en rajoutant une pénalité de temps sur les changement de ligne
+     *
      * @param g
      * @param depart
      * @return
@@ -51,7 +54,7 @@ public class Dijkstra implements Resoudre {
         Valeurs valeurs = new Valeurs();
         List<String> noeuds = g.ListeNoeuds();
         List<String> Q = new ArrayList<>(noeuds);
-        String ligne="";
+        String ligne = "";
 
         for (String v : noeuds) {
             valeurs.setValeur(v, Double.MAX_VALUE);
@@ -81,7 +84,7 @@ public class Dijkstra implements Resoudre {
                 if (Q.contains(v)) {
                     double d = valeurs.getValeur(u) + arc.getCout();
                     if (!arc.getLigne().equals(ligne)) {
-                        d+=10;
+                        d += 10;
                     }
                     if (d < valeurs.getValeur(v)) {
                         valeurs.setValeur(v, d);
@@ -96,6 +99,7 @@ public class Dijkstra implements Resoudre {
 
     /**
      * Méthode qui cherche le plus petite valeur à absober dans Dijkstra
+     *
      * @param Q
      * @param valeurs
      * @return

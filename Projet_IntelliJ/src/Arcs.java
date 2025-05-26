@@ -13,6 +13,7 @@ public class Arcs {
 
     /**
      * Méthode d'ajout d'un arc
+     *
      * @param a
      */
     public void ajouterArc(Arc a) {
@@ -21,6 +22,7 @@ public class Arcs {
 
     /**
      * Méthode de renvoie de la liste des arc
+     *
      * @return
      */
     public List<Arc> getArcs() {
