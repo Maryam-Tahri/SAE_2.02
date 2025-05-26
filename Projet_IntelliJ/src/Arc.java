@@ -17,6 +17,8 @@ public class Arc {
         this.ligne = ligne;
     }
 
+    public String getLigne(){ return ligne;}
+
     public String getDest() {
         return dest;
     }

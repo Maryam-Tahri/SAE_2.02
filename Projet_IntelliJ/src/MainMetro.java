@@ -11,6 +11,7 @@ public class MainMetro {
                 String arrive = g2.ListeNoeuds().get((int)(Math.floor(Math.random()*285)));
                 Valeurs v =  new Valeurs();
                 Valeurs v2 =  new Valeurs();
+                Valeurs v3 =  new Valeurs();
                 BellmanFord bf = new BellmanFord();
                 Dijkstra dj = new Dijkstra();
 
@@ -22,12 +23,11 @@ public class MainMetro {
                 long datedeb2 = System.nanoTime();
                 v2 = dj.resoudre(g2,depart);
                 long datefin2 = System.nanoTime();
-                long execDijkstra = datefin2-datedeb2;
+                long execDijkstra1 = datefin2-datedeb2;
                 List<String> c1 = v.calculerChemin(arrive);
                 System.out.println("Départ : "+depart+"\nArrivé : "+arrive);
                 System.out.println(c1);
-                System.out.println("Temps d'execution Dijkstra : "+execDijkstra+"ns\n" +"Temps d'execution de BerllmanFord : "+execBellmanFord+"ns");
-                List<String> c2 = v2.calculerChemin(arrive);
+                System.out.println("Temps d'execution Dijkstra : "+execDijkstra1+"ns\n" +"Temps d'execution de BerllmanFord : "+execBellmanFord+"ns");
 
             }
         }catch(IOException e){

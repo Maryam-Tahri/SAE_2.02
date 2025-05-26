@@ -9,7 +9,6 @@ public class LireReseau {
         String line = br.readLine();
         boolean stations = true;
         while (line != null) {
-            System.out.println(line+" "+stations);
             if (!(line.equals(""))) {
                 if (line.startsWith("%") ) {
                     if (stations && line.equals("%% Connexions:")) {
