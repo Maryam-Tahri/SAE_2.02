@@ -23,8 +23,10 @@ public class MainMetro {
                 v2 = dj.resoudre(g2,depart);
                 long datefin2 = System.nanoTime();
                 long execDijkstra = datefin2-datedeb2;
-                System.out.println("Temps d'execution Dijkstra : "+execDijkstra+"ns\n" +"Temps d'execution de BerllmanFord : "+execBellmanFord+"ns");
                 List<String> c1 = v.calculerChemin(arrive);
+                System.out.println("Départ : "+depart+"\nArrivé : "+arrive);
+                System.out.println(c1);
+                System.out.println("Temps d'execution Dijkstra : "+execDijkstra+"ns\n" +"Temps d'execution de BerllmanFord : "+execBellmanFord+"ns");
                 List<String> c2 = v2.calculerChemin(arrive);
 
             }
