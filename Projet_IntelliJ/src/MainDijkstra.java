@@ -10,9 +10,9 @@ public class MainDijkstra {
         graph.ajouterArc("D", "B", 23);
         graph.ajouterArc("E", "D", 43);
 
-        Valeurs v2 =  new Valeurs();
+        Valeurs v2 = new Valeurs();
         Dijkstra dj = new Dijkstra();
-        v2 = dj.resoudre(graph,"A");
+        v2 = dj.resoudre(graph, "A");
         //System.out.println(v2.toString());
     }
 }

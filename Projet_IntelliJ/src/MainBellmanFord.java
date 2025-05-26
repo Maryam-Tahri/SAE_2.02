@@ -11,9 +11,9 @@ public class MainBellmanFord {
         graph.ajouterArc("D", "B", 23);
         graph.ajouterArc("E", "D", 43);
 
-        Valeurs v =  new Valeurs();
+        Valeurs v = new Valeurs();
         BellmanFord bf = new BellmanFord();
-        v = bf.resoudre(graph,"A");
+        v = bf.resoudre(graph, "A");
         //System.out.println(v.toString());
     }
 }
