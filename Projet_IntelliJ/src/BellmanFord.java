@@ -79,6 +79,7 @@ public class BellmanFord implements Resoudre {
                     if (nouvelleValeur < l.getValeur(arc.getDest())) {
                         l.setValeur(arc.getDest(), nouvelleValeur);
                         l.setParent(arc.getDest(), noeud);
+                        ligne = arc.getLigne();
                         modif = true;
                     }
                 }
